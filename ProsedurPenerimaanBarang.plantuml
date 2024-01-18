@@ -1,0 +1,32 @@
+@startuml
+title Prosedur Penerimaan Barang
+|#white|SUPPLIER|
+start
+:Menerima Purchase Order;
+:Menyiapkan Faktur;
+:Mengantarkan Barang;
+
+|#lightgray|Bag. Gudang|
+:Menerima Faktur dan Barang;
+if (Barang Benar?) is (tidak) then
+|#white|SUPPLIER|
+#white:**mengembalikan barang**;
+
+|#lightgray|Bag. Gudang|
+else (benar)
+#lightgray:**Melakukan rekapitulasi barang masuk**;
+endif
+
+|#gray|Kepala Penjualan|
+:Menerima rekapitulasi barang dari Bag Gudang;
+:menerima Purchase Order + membuat Faktur Pembelian;
+
+|#lightgray|Bag. Gudang|
+:Menerima faktur pemebelian + Purchase Order;
+:meenandatagani Purcahse Order;
+
+|#white|SUPPLIER|
+:menerima Purchase Order + Faktur Pembelian;
+
+stop
+@enduml

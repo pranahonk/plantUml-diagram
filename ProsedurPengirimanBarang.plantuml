@@ -1,0 +1,27 @@
+@startuml
+title Prosedur Pengiriman Barang
+|#white|Customer|
+start
+:Melakukan Pembelian Barang;
+
+|#lightgray|Bag. Penjualan|
+:Menerima Pembelian Barang;
+if (Apakah Tempo?) is (ya) then
+|#lightgray|Bag. Penjualan|
+#lightgray:**Melakukan Rekapitulasi Piutang**;
+endif
+
+|#lightgray|Bag. Penjualan|
+:membuat Surat Pengiriman Barang;
+
+|#gray|Bag. Gudang|
+:menerima Surat Pengiriman Barang;
+:membuat surat jalan;
+
+
+|#white|Customer|
+:menerima Barang;
+
+
+stop
+@enduml
